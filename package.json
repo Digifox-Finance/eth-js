@@ -1,6 +1,6 @@
 {
   "name": "@digifox/eth-js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Minimal js library to generate Ethereum private keys and sign messages",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
