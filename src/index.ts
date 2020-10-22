@@ -1,7 +1,6 @@
 import createWallet from "./createWallet";
 import signTransaction from "./signTransaction";
 
-export * from "ethereumjs-tx";
-export * from "ethjs-util";
+export * from "ethereumjs-util";
 
 export { createWallet, signTransaction };
