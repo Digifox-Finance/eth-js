@@ -1,5 +1,25 @@
 import { publicKeyCreate } from "secp256k1";
+import { keccak256 } from "@ethersproject/solidity";
 
+interface solidityKeccak256Param {
+  value: string;
+  type: string;
+}
+
+export function solidityKeccak256(params: solidityKeccak256Param[]) {
+  const types: string[] = [];
+  const values: string[] = [];
+  if (!Array.isArray(params)) {
+    types.push("string");
+    values.push(params);
+  } else {
+    params.forEach((p) => {
+      types.push(p.type);
+      values.push(p.value);
+    });
+  }
+  return keccak256(types, values);
+}
 export function removeLeading0x(str: string) {
   if (str.startsWith("0x")) return str.substring(2);
   else return str;
@@ -16,6 +36,14 @@ export function uint8ArrayToHex(arr: any[]) {
 
 export function hexToUnit8Array(str: string) {
   return new Uint8Array(Buffer.from(str, "hex"));
+}
+function toArrayBuffer(buf: any) {
+  var ab = new ArrayBuffer(buf.length);
+  var view = new Uint8Array(ab);
+  for (var i = 0; i < buf.length; ++i) {
+    view[i] = buf[i];
+  }
+  return ab;
 }
 
 /**
