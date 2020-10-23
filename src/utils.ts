@@ -17,14 +17,6 @@ export function uint8ArrayToHex(arr: any[]) {
 export function hexToUnit8Array(str: string) {
   return new Uint8Array(Buffer.from(str, "hex"));
 }
-function toArrayBuffer(buf: any) {
-  var ab = new ArrayBuffer(buf.length);
-  var view = new Uint8Array(ab);
-  for (var i = 0; i < buf.length; ++i) {
-    view[i] = buf[i];
-  }
-  return ab;
-}
 
 /**
  * Returns the ethereum public key of a given private key.
